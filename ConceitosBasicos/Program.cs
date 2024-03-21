@@ -12,6 +12,7 @@ do
     Console.WriteLine("(1) Calcular IMC");
     Console.WriteLine("(2) Peso Ideal");
     Console.WriteLine("(3) Jogo de adivinhação");
+    Console.WriteLine("(4) Exibir 5 valores fornecidos pelo usuário em ordem decrescente");
     Console.WriteLine("(0) Encerrar");
     opcao = Convert.ToInt32(Console.ReadLine());
     switch (opcao)
@@ -24,6 +25,9 @@ do
             break;
         case 3:
             JogoAdivinhacao();
+            break;
+        case 4:
+            OrdenarValores();
             break;
     }
     /*
@@ -108,4 +112,21 @@ static void JogoAdivinhacao()
             
     }
     Console.WriteLine("Fim de Jogo!");
+}
+static void OrdenarValores()
+{
+    int tamanho = 5;
+    int[] valores = new int[tamanho];
+
+    for(int i = 0;i < valores.Length;i++)
+    {
+        Console.WriteLine("Informe o ${0}o. valor: ", i+1);
+        valores[i] = Convert.ToInt32(Console.ReadLine());
+    }
+
+    Console.WriteLine("Valores Informados:");
+    foreach (var valor in valores)
+    {
+        Console.WriteLine(valor + " ");
+    }
 }
