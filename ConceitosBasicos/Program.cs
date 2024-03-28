@@ -29,6 +29,9 @@ do
         case 4:
             OrdenarValores();
             break;
+        case 5:
+            Fatorial();
+            break;
     }
     /*
     if (opcao == 1)
@@ -120,11 +123,30 @@ static void OrdenarValores()
 
     for(int i = 0;i < valores.Length;i++)
     {
-        Console.WriteLine("Informe o ${0}o. valor: ", i+1);
+        Console.WriteLine("Informe o {0}o. valor: ", i+1);
         valores[i] = Convert.ToInt32(Console.ReadLine());
     }
 
     Console.WriteLine("Valores Informados:");
+    foreach (var valor in valores)
+    {
+        Console.WriteLine(valor + " ");
+    }
+
+    for(int i = 0; i < valores.Length; i++)
+    {
+        for(int j = i+1; j < valores.Length; j++)
+        {
+            if (valores[i] < valores[j])
+            {
+                var temp = valores[i];
+                valores[i] = valores[j];
+                valores[j] = temp;
+            }
+        }
+    }
+
+    Console.WriteLine("Valores ordenados:");
     foreach (var valor in valores)
     {
         Console.WriteLine(valor + " ");
