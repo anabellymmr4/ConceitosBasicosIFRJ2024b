@@ -13,6 +13,7 @@ do
     Console.WriteLine("(2) Peso Ideal");
     Console.WriteLine("(3) Jogo de adivinhação");
     Console.WriteLine("(4) Exibir 5 valores fornecidos pelo usuário em ordem decrescente");
+    Console.WriteLine("(6) Verifica Primo");
     Console.WriteLine("(0) Encerrar");
     opcao = Convert.ToInt32(Console.ReadLine());
     switch (opcao)
@@ -30,7 +31,12 @@ do
             OrdenarValores();
             break;
         case 5:
-            Fatorial();
+            //Fatorial();
+            break;
+        case 6:
+            Console.WriteLine("Informe um número inteiro:");
+            int numero = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine(VerificaPrimo(numero));
             break;
     }
     /*
@@ -151,4 +157,17 @@ static void OrdenarValores()
     {
         Console.WriteLine(valor + " ");
     }
+}
+
+static string VerificaPrimo(int numero)
+{
+    int cont = numero / 2;
+    
+    for(int divisor = 2;divisor <= cont; divisor++)
+    {
+        if ((numero % divisor) == 0)
+            return "não é primo";
+    }
+    return "é primo";
+
 }
